@@ -1,0 +1,12 @@
+https://websim.ai/
+
+username: jobsdavideduardo
+password: kyfkAaCupkOO6VcR
+
+mongodb+srv://jobsdavideduardo:kyfkAaCupkOO6VcR@cluster0.we6km.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+cloker developer
+username: jobsdavideduardo
+password: bfFxnUzdZlCQYB9A
+mongodb+srv://jobsdavideduardo:bfFxnUzdZlCQYB9A@cluster0.ywkzi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

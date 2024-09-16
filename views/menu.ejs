@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        <%= title %>
+    </title>
+
+    <!-- CODDING: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CODDING: Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom styles for layout */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #F4F5F6;
+
+        }
+
+        .topbar {
+            height: 60px;
+            background-color: #F4F5F6;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+
+            top: 0;
+            left: 250px;
+            width: 100%;
+
+        }
+
+        .poppins-thin {
+            font-family: "Poppins", system-ui;
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        .poppins-extralight {
+            font-family: "Poppins", system-ui;
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        .poppins-light {
+            font-family: "Poppins", system-ui;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .poppins-regular {
+            font-family: "Poppins", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .poppins-medium {
+            font-family: "Poppins", system-ui;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .poppins-semibold {
+            font-family: "Poppins", system-ui;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .poppins-bold {
+            font-family: "Poppins", system-ui;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .poppins-extrabold {
+            font-family: "Poppins", system-ui;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        .poppins-black {
+            font-family: "Poppins", system-ui;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        .poppins-thin-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        .poppins-extralight-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        .poppins-light-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .poppins-regular-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .poppins-medium-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .poppins-semibold-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .poppins-bold-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        .poppins-extrabold-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        .poppins-black-italic {
+            font-family: "Poppins", system-ui;
+            font-weight: 900;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F4F5F6]">
+    <div class="sidebar hidden md:block lg:block xl:block 2xl:block">
+        <h2 class="text-xl font-bold p-4">Menu</h2>
+        <ul class="text-xs px-[16px]">
+            <li>
+                <a href="/dashboard" class="shadow-[0_5px_10px_0_rgba(0,0,0,0.12)] px-[16px] py-[11px] rounded-[8px] bg-white block text-gray-700 hover:bg-gray-200 flex flex-row justify-start items-center space-x-[10px]">
+                    <i class="bg-[#CB0C9F] text-white text-lg fa-solid fa-chart-simple w-[32px] h-[32px] rounded-[8px] flex justify-center items-center shadow-[0_5px_10px_0_rgba(0,0,0,0.12)]"></i>
+                    <p class="text-[16px]">Dashboard</p>
+                </a>
+            </li>
+            <li>
+                <div class="w-full pt-[42px] pb-[16px] flex flex-col justify-center items-start">
+                    <p class="text-[16px] font-bold mb-[5px]">Campanhas</p>
+                    <p class="text-[16px] font-normal text-[#67748e]">7 campanhas encontradas</p>
+                </div>
+            </li>
+            
+            <li>
+                <a href="/dashboard" class=" px-[16px] py-[11px] rounded-[8px] bg-transparent block text-gray-700 hover:bg-gray-200 flex flex-row justify-start items-center space-x-[10px]">
+                    <i class="bg-white text-lg fa-solid fa-layer-group w-[32px] h-[32px] rounded-[8px] flex justify-center items-center shadow-[0_5px_10px_0_rgba(0,0,0,0.12)]"></i>
+                    <div class="flex flex-col justify-center items-start">
+                        <p class="text-[16px]">Campanha</p>
+                        <p class="text-[12px] text-[#67748e]">Slim Gota...</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/dashboard" class=" px-[16px] py-[11px] rounded-[8px] bg-transparent block text-gray-700 hover:bg-gray-200 flex flex-row justify-start items-center space-x-[10px]">
+                    <i class="bg-white text-lg fa-solid fa-layer-group w-[32px] h-[32px] rounded-[8px] flex justify-center items-center shadow-[0_5px_10px_0_rgba(0,0,0,0.12)]"></i>
+                    <div class="flex flex-col justify-center items-start">
+                        <p class="text-[16px]">Campanha</p>
+                        <p class="text-[12px] text-[#67748e]">Slim Gota...</p>
+                    </div>
+                </a>
+            </li>
+            
+            <li><a href="/dashboard"
+                    class="block p-4 text-gray-700 hover:bg-gray-200 flex flex-row justify-start items-center space-x-[10px]">
+                    <i class="fa-solid fa-gear"></i>
+                    <p>Configuração</p>
+                </a></li>
+
+            <li><a href="#" class="block p-4 text-gray-700 hover:bg-gray-200">Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="topbar">
+        <div class="account-info flex items-center">
+            <img src="https://via.placeholder.com/40" alt="Profile Picture" class="rounded-full mr-2">
+            <span>Nome da Conta</span>
+        </div>
+    </div>
+
+    <div class="p-[32px] ml-[0px] md:ml-[250px] lg:ml-[250px] xl:ml-[250px] 2xl:ml-[250px]">
+        <!-- Include the content here -->
+        <%- include(body) %>
+
+    </div>
+</body>
+
+</html>

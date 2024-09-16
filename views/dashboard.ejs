@@ -1,0 +1,205 @@
+<div class="w-full">
+    <div>
+        <h1 class="text-xl/none font-bold">Dashboard</h1>
+        <h1 class="text-lg mb-4">Acompanhe as visitas ao site</h1>
+    </div>
+
+    <div class="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-[16px] md:gap-[16px] lg:gap-[16px] xl:gap-[16px] 2xl:gap-[16px] mb-4">
+        <div class="bg-white px-[16px] py-[16px] rounded-[16px] shadow-[0_7px_29px_0_rgba(100,100,111,0.2)] flex flex-row justify-start items-center space-x-[10px]">
+            <i class="bg-[#54C1FB] text-white fa-solid fa-eye h-[48px] w-[48px] rounded-[8px] shadow-[0_5px_10px_0_rgba(0,0,0,0.12)] flex justify-center items-center"></i>
+            <div class="flex flex-col justify-center items-start">
+                <p class="text-[16px] leading-none text-[#344767] font-bold">Total de visitas</p>
+                <div class="flex flex-row justify-start items-center space-x-[10px]">
+                    <p class="text-[16px] leading-0 text-[#67748e] font-normal"><%= visitAnalysis.totalVisits %> visitas</p>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="bg-white px-[16px] py-[16px] rounded-[16px] shadow-[0_7px_29px_0_rgba(100,100,111,0.2)] flex flex-row justify-start items-center space-x-[10px]">
+            <i class="bg-[#FF505A] text-white fa-solid fa-eye h-[48px] w-[48px] rounded-[8px] shadow-[0_5px_10px_0_rgba(0,0,0,0.12)] flex justify-center items-center"></i>
+            <div class="flex flex-col justify-center items-start">
+                <p class="text-[16px] leading-none text-[#344767] font-bold">Visitas bloqueadas</p>
+                <p class="text-[16px] leading-0 text-[#67748e] font-normal"><%= visitAnalysis.blockedVisits %> visitas</p>
+            </div>
+        </div>
+        <div class="bg-white px-[16px] py-[16px] rounded-[16px] shadow-[0_7px_29px_0_rgba(100,100,111,0.2)] flex flex-row justify-start items-center space-x-[10px]">
+            <i class="bg-[#11CE8C] text-white fa-solid fa-eye h-[48px] w-[48px] rounded-[8px] shadow-[0_5px_10px_0_rgba(0,0,0,0.12)] flex justify-center items-center"></i>
+            <div class="flex flex-col justify-center items-start">
+                <p class="text-[16px] leading-none text-[#344767] font-bold">Visitas permitidas</p>
+                <p class="text-[16px] leading-0 text-[#67748e] font-normal"><%= visitAnalysis.approvedVisits %> visitas</p>
+            </div>
+        </div>
+        
+       
+        <div class="col-span-1 md:col-span-3 lg:col-span-3 xl:col-span-3 2xl:col-span-3 bg-white px-[16px] py-[16px] rounded-[10px] shadow-[0_7px_29px_0_rgba(100,100,111,0.2)] flex flex-col justify-center items-start">
+            <div class="flex flex-col justify-center items-start mb-[8px]">
+                <p class="text-xs font-bold">Principais Configurações</p>
+            </div>
+            
+            <div class="w-full flex flex-row justify-start items-center flex-wrap space-x-[12px] space-y-[12px]">
+                <!-- Tipo de Bloqueio -->
+                <div class="shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] flex flex-row justify-center items-center space-x-[5px] rounded-full px-[16px] py-[4px] bg-[#F7F7F5]">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    <p class="text-xs">Tipo de bloqueio: <%= config.tipoBloqueio === "bloquearTodos" ? "Bloquear Todos" : config.tipoBloqueio === "permitirTodos" ? "Permitir Todos" : config.tipoBloqueio === "bloquearTodosEAdicionarIpNaBlackList" ? "Bloquear todos e adicionar IP na black list" : config.tipoBloqueio === "bloquearPorCategoria" ? "Bloquear por categoria" : config.tipoBloqueio || 'Não Definido' %></p>
+                </div>
+            
+                <!-- Países Permitidos -->
+                <div class="shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] flex flex-row justify-center items-center space-x-[5px] rounded-full px-[16px] py-[4px] bg-[#F7F7F5]">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    <p class="text-xs">
+                        Países permitidos: 
+                        <% if (config.permitirPaises.length === 0) { %>
+                           Nenhum escolhido
+                        <% } else { %>
+                           <%= config.permitirPaises.join(', ') %>
+                        <% } %>
+                        
+                    </p>
+                </div>
+
+                <!-- Cidades Permitidas -->
+                <div class="shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] flex flex-row justify-center items-center space-x-[5px] rounded-full px-[16px] py-[4px] bg-[#F7F7F5]">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    <p class="text-xs">
+                        Cidades permitidas: <% if (config.permitirCidades.length === 0) { %>
+                            Nenhuma escolhida
+                         <% } else { %>
+                            <%= config.permitirCidades.join(', ') %>
+                         <% } %>
+                        
+                    </p>
+                </div>
+
+                <!-- Esdados Permitidos -->
+                <div class="shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] flex flex-row justify-center items-center space-x-[5px] rounded-full px-[16px] py-[4px] bg-[#F7F7F5]">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    <p class="text-xs">
+                        Estados permitidos: 
+                        <% if (config.permitirEstados.length === 0) { %>
+                            Nenhum escolhido
+                         <% } else { %>
+                            <%= config.permitirEstados.join(', ') %>
+                         <% } %>
+                        
+                    </p>
+                </div>
+            
+                <!-- Dispositivos Permitidos -->
+                <div class="shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] flex flex-row justify-center items-center space-x-[5px] rounded-full px-[16px] py-[4px] bg-[#F7F7F5]">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    <p class="text-xs">
+                        Dispositivos permitidos: 
+                        <% if (config.permitirDispositivos.length > 0) { %>
+                            <%= config.permitirDispositivos.join(', ') %>
+                        <% } else { %>
+                            Todos
+                        <% } %>
+                    </p>
+                </div>
+
+                <!-- Provedores bloqueados -->
+                <div class="shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] flex flex-row justify-center items-center space-x-[5px] rounded-full px-[16px] py-[4px] bg-[#F7F7F5]">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    <p class="text-xs">
+                        Provedores bloqueados: 
+                        <% if (config.bloquearProvedor.length > 0) { %>
+                            <%= config.bloquearProvedor.length > 1 ? `${config.bloquearProvedor.length} provedores` : `${config.bloquearProvedor.length} provedor` %>
+                        <% } else { %>
+                            Nenhum
+                        <% } %>
+                    </p>
+                </div>
+            
+                <!-- Bloquear IPs -->
+                <div class="shadow-[0_2px_8px_0_rgba(99,99,99,0.2)] flex flex-row justify-center items-center space-x-[5px] rounded-full px-[16px] py-[4px] bg-[#F7F7F5]">
+                    <i class="fa-solid fa-gear text-xs"></i>
+                    <p class="text-xs">
+                        Bloquear IPs: 
+                        <% if (config.bloquearIPs && config.bloquearIPs.length > 0) { %>
+                            <%= config.bloquearIPs.length %> IPs
+                        <% } else { %>
+                            Nenhum IP bloqueado
+                        <% } %>
+                    </p>
+                </div>
+
+                <!-- Outras configurações... -->
+            </div>
+        
+            
+        </div>
+        
+       
+    </div>
+
+    
+
+    <div class="overflow-x-auto">
+    <table class="min-w-full text-xs table-auto bg-white rounded-lg shadow">
+        <thead class="bg-gray-800 h-[40px] text-white">
+        <tr class="">
+            <th class="text-[12px]">Data</th>
+            <th class="text-[12px]">IP</th>
+            <th class="text-[12px]">País, Cidade e Região</th>
+       
+            <th class="text-xs">Provedor</th>
+            <th class="text-xs">User-Agent</th>
+            <th class="text-xs">Sistema Operacional</th>
+            <th class="text-xs">Dispositivo</th>
+            <th class="text-xs">Sub ID</th>
+            <th class="text-xs">Referência</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% visitsTacker.slice().reverse().forEach(function(entry) { %>
+            <tr class="border-b hover:bg-gray-100">
+                <td class="px-4 py-2 whitespace-nowrap"><%= entry.dataFormatted %></td>
+                <td class="px-4 py-2 whitespace-nowrap">
+                    <div class="flex flex-col justify-center items-center">
+                      
+                      <% if (entry.status.status) { %> 
+                        <!-- Caso o status seja true, tudo branco e ícone de check -->
+                        <div class="flex flex-row justify-center items-center space-x-[5px] text-green-500">
+                          <i class="fa-solid fa-check-circle"></i>
+                          <p class="text-xs"><%= entry.ip %></p>
+                        </div>
+                        <div class="bg-[#B9DFC5] rounded-full px-[16px] py-[4px] text-[#14A252] mt-1">
+                            <p class="text-xs"><span class="font-semibold">Motivo:</span> <%= entry.status.motivo %></p>
+                        </div>
+                      <% } else { %>
+                        <!-- Caso o status seja false, tudo vermelho com motivo -->
+                        <div class="flex flex-row justify-center items-center space-x-[5px] text-red-500">
+                          <i class="fa-solid fa-ban"></i>
+                          <p class="text-xs"><%= entry.ip %></p>
+                        </div>
+                        <div class="bg-[#EDB5B7] rounded-full px-[16px] py-[4px] text-[#FA0D21] mt-1">
+                          <p class="text-xs"><span class="font-semibold">Motivo:</span> <%= entry.status.motivo %></p>
+                        </div>
+                      <% } %>
+                  
+                    </div>
+                </td>
+                  
+                <td class="px-4 py-2 whitespace-nowrap">
+                    <div class="flex flex-row justify-start items-center">
+                        <i class="fa-solid fa-location-dot h-[40px] w-[40px] flex justify-center items-center"></i>
+                        <div class="flex flex-col justify-center items-start">
+                            <p class="font-bold"><%= entry.pais %>, <%= entry.ipapi.country %></p>
+                            <p class="font-normal"><%= entry.cidade %></p>
+                            <p class="font-light"><%= entry.regiao %>, <%= entry.ipapi.region_code %></p>
+                        </div>
+                    </div>
+                </td>
+            
+                <td class="px-4 py-2"><%= entry.provedor %></td>
+                <td class="px-4 py-2"><%= entry.userAgent %></td>
+                <td class="px-4 py-2 whitespace-nowrap"><%= entry.sistemaOperacional %></td>
+                <td class="px-4 py-2 whitespace-nowrap"><%= entry.dispositivo %></td>
+                <td class="px-4 py-2 whitespace-nowrap"><%= entry.subID %></td>
+                <td class="px-4 py-2 whitespace-nowrap"><%= entry.referer %></td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
+    </div>
+</div>
